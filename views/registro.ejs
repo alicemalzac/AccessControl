@@ -1,0 +1,46 @@
+<h1>Cadastro de usuário</h1>
+<%- include ('./partials/messages') %>
+
+<form action="/usuarios/registro" method="POST">
+<div>
+    <label for="name">Nome: </label>
+    <input
+      type="name"
+      name="name"
+      placeholder="Insira seu nome"
+      value="<%= typeof name != 'undefined' ? name : '' %>"
+    />
+  
+</div>
+<div>
+    <label for="email">Email: </label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Insira seu e-mail"
+      value="<%= typeof email != 'undefined' ? email : '' %>"
+    />
+  </div>
+  <div >
+    <label for="password">Senha: </label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Crie uma senha"
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+  </div>
+  <div >
+    <label for="password2">Confirmar senha:</label>
+    <input
+      type="password"
+      name="password2"
+      placeholder="Confirme sua senha"
+      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">
+    Continuar
+  </button>
+</form>
+<p >Já tem uma conta? <a href="/usuarios/login"> Login</a></p>
