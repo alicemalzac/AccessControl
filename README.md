@@ -12,7 +12,7 @@ This application was developed in Node.js to exemplify a simple access control w
 4. Authentication: Passport
 5. Encryption used in the password: Bcrypt
 
-## Usage
+## Local usage
 ```bash
 At a terminal, run: 
 npm i express express-session express-ejs-layouts connect-flash passport passport-local mongoose bcrypt ejs 
@@ -26,7 +26,9 @@ Welcome page: http://localhost:3000/usuarios/registro
 ```text
 Login page: http://localhost:3000/usuarios/login
 ```
-
+```text
+Dashboard page: http://localhost:3000/dashboard
+```
 ```text
 Logout page: http://localhost:3000/usuarios/logout  
 ```

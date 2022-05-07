@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require("../models/usuario.js");
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 
 //identifica o login
 router.get('/login',(req,res)=>{
@@ -37,7 +38,7 @@ router.post('/registro',(req,res)=>{
     password : password,
     password2 : password2})
     } else {
-    //validação funciona 
+    //validação 
     User.findOne({email : email}).exec((err,user)=>{
     console.log(user);   
     
@@ -46,25 +47,35 @@ router.post('/registro',(req,res)=>{
         res.render('registro',{errors,name,email,password,password2})
         
         } else {
-        const newUser = new User({
+        const newUser = new User({ //cria o novo usuário 
             name : name,
             email : email,
             password : password
         });
-            newUser.save().then((value)=>{
+            newUser.save().then((value)=>{ //salva o novo usuário
             console.log(value)
             req.flash('success_msg','Cadastro realizado com sucesso!');
-            res.redirect('/usuarios/login');
+            res.redirect('/usuarios/login'); //direciona para a página de login
         }).catch(value=> console.log(value));
+        //hash de senha
+        bcrypt.genSalt(10,(err,salt)=> 
+        bcrypt.hash(newUser.password,salt,
+            (err,hash)=> {
+                if(err) throw err;
+                    newUser.password = hash; //salva o hash na senha
+                newUser.save().then((value)=>{ //salva o novo usuário
+                    console.log(value)
+                res.redirect('/usuarios/login'); //direciona para a página de login
+                }).catch(value=> console.log(value));
+            }));
         }
     })
     }
 }) 
-
 router.post('/login',(req,res,next)=>{
     passport.authenticate('local',{
         successRedirect : '/dashboard',
-        failureRedirect : '/users/login',
+        failureRedirect : '/usuarios/login',
         failureFlash : true,
         })(req,res,next);
 })
