@@ -9,5 +9,9 @@
     "mongoose": "^6.3.2",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0"
   }
 }

@@ -37,7 +37,7 @@ router.post('/registro',(req,res)=>{
     password : password,
     password2 : password2})
     } else {
-    //validation passed
+    //validação funciona 
     User.findOne({email : email}).exec((err,user)=>{
     console.log(user);   
     
