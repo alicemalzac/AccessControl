@@ -2,7 +2,11 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-flash": "^0.1.1",
+<<<<<<< HEAD
     "cypress": "^9.6.0",
+=======
+    "cypress": "^9.7.0",
+>>>>>>> 5325190c1dc89247511ab3035710fcc99077cf40
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
