@@ -11,6 +11,8 @@ This application was developed in Node.js to exemplify a simple access control w
 3. Access to database: Mongoose
 4. Authentication: Passport
 5. Encryption used in the password: Bcrypt
+6. Vulnerability analysis: OWASP ZAP
+7. Unit tests: Jest
 
 ## Local usage
 ```bash
